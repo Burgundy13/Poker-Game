@@ -47,24 +47,30 @@ class Game {
 			'.front:not(.selected)'
 		);
 		let cardBack = this.cards[this.cardIndex].querySelector('.back');
+
 		if (cardFront) {
 			this.finalCards[this.cardIndex] = this.randomFiveCards[this.cardIndex];
 			cardFront.children[0].setAttribute('src', this.getImage());
-			cardFront.onclick = function () {
+			cardFront.onclick = () => {
 				cardFront.classList.toggle('selected');
 			};
+
 			setTimeout(() => {
 				cardBack.style.transform = 'perspective(900px) rotateY(180deg)';
 				cardFront.style.transform = 'perspective(900px) rotateY(0)';
 				this.cardIndex++;
-				if (this.cardIndex <= this.cards.length) {
+				if (this.cardIndex < this.cards.length) {
 					this.reveal();
+				} else if (this.round === 2) {
+					this.checkWins();
 				}
 			}, 100);
 		} else {
 			this.cardIndex++;
-			if (this.cardIndex <= this.cards.length) {
+			if (this.cardIndex < this.cards.length) {
 				this.reveal();
+			} else if (this.round === 2) {
+				this.checkWins();
 			}
 		}
 	}
@@ -81,6 +87,13 @@ class Game {
 
 	shuffleCards() {
 		this.randomFiveCards = deck.fiveRandomCards();
+	}
+
+	checkWins() {
+		let wins = new Wins(this.finalCards);
+		if (wins.royalFlush()) {
+			console.log('Royal Flush');
+		}
 	}
 }
 
