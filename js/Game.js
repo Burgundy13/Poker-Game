@@ -98,6 +98,9 @@ class Game {
 		if (wins.royalFlush()) {
 			console.log('Royal Flush');
 			this.selectWinCards(wins);
+		} else if (wins.straightFlush()) {
+			console.log('Straight Flush');
+			this.selectWinCards(wins);
 		}
 	}
 

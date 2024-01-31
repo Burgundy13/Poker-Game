@@ -41,6 +41,43 @@ class Wins {
 		}
 	}
 
+	straightFlush() {
+		if (this.sameSign() && this.straight()) {
+			this.winCards = this.finalCards;
+			return true;
+		}
+	}
+
+	straight() {
+		let found = false;
+		let straights = [
+			['ace', 2, 3, 4, 5],
+			[2, 3, 4, 5, 6],
+			[3, 4, 5, 6, 7],
+			[4, 5, 6, 7, 8],
+			[5, 6, 7, 8, 9],
+			[6, 7, 8, 9, 10],
+			[7, 8, 9, 10, 'jack'],
+			[8, 9, 10, 'jack', 'queen'],
+			[9, 10, 'jack', 'queen', 'king'],
+		];
+		straights.forEach((straight) => {
+			let sortStraight = straight.sort();
+			let sortedFinalCards = this.finalCards.map((e) => e.value).sort();
+			if (
+				sortStraight[0] === sortedFinalCards[0] &&
+				sortStraight[1] === sortedFinalCards[1] &&
+				sortStraight[2] === sortedFinalCards[2] &&
+				sortStraight[3] === sortedFinalCards[3] &&
+				sortStraight[4] === sortedFinalCards[4]
+			) {
+				found = true;
+				return found;
+			}
+		});
+		return found;
+	}
+
 	highStraight() {
 		return this.all10.length === 1;
 	}

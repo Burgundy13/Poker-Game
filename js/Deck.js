@@ -19,11 +19,11 @@ class Deck {
 		// }
 		// return fiveRandomCards;
 		return [
-			this.cards[8],
-			this.cards[9],
-			this.cards[10],
-			this.cards[11],
-			this.cards[12],
+			this.cards[1],
+			this.cards[2],
+			this.cards[0],
+			this.cards[3],
+			this.cards[4],
 		];
 	}
 }
