@@ -51,6 +51,10 @@ class Game {
 		if (cardFront) {
 			this.finalCards[this.cardIndex] = this.randomFiveCards[this.cardIndex];
 			cardFront.children[0].setAttribute('src', this.getImage());
+			cardFront.setAttribute(
+				'data-id',
+				this.randomFiveCards[this.cardIndex].getCard()
+			);
 			cardFront.onclick = () => {
 				cardFront.classList.toggle('selected');
 			};
@@ -93,7 +97,16 @@ class Game {
 		let wins = new Wins(this.finalCards);
 		if (wins.royalFlush()) {
 			console.log('Royal Flush');
+			this.selectWinCards(wins);
 		}
+	}
+
+	selectWinCards(wins) {
+		wins.winCards.forEach((card) => {
+			document
+				.querySelector('[data-id="' + card.getCard() + '"]')
+				.classList.add('cardWin', 'selected');
+		});
 	}
 }
 

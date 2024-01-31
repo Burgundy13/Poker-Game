@@ -49,3 +49,9 @@ button {
 .selected {
 	top: 50px;
 }
+
+.cardWin {
+	outline: 5px solid green;
+	box-shadow: 0 0 20px green;
+	border-radius: 10px;
+}

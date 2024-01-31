@@ -31,12 +31,18 @@ class Wins {
 			this.all3,
 			this.all2,
 		];
+		this.winCards = [];
 	}
 
 	royalFlush() {
-		if (this.sameSign()) {
+		if (this.sameSign() && this.highStraight()) {
+			this.winCards = this.finalCards;
 			return true;
 		}
+	}
+
+	highStraight() {
+		return this.all10.length === 1;
 	}
 
 	sameSign() {
