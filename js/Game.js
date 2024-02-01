@@ -16,14 +16,15 @@ class Game {
 		if (this.round === 1) {
 			this.removeAllSelected();
 		}
-		this.btn.innerHTML = 'Start ' + this.round;
+		this.btn.innerHTML = 'Round ' + this.round;
 		this.cardIndex = 0;
 		this.turnOnBack();
 	}
 
 	removeAllSelected() {
 		document.querySelectorAll('.selected').forEach((div) => {
-			div.classList.remove('selected');
+			console.log('hello');
+			div.classList.remove('selected', 'cardWin');
 		});
 	}
 
@@ -95,6 +96,7 @@ class Game {
 
 	checkWins() {
 		let wins = new Wins(this.finalCards);
+
 		if (wins.royalFlush()) {
 			console.log('Royal Flush');
 			this.selectWinCards(wins);
@@ -115,6 +117,9 @@ class Game {
 			this.selectWinCards(wins);
 		} else if (wins.twoPairs()) {
 			console.log('two Pairs');
+			this.selectWinCards(wins);
+		} else if (wins.jacksOrBetter()) {
+			console.log('Jacks or better');
 			this.selectWinCards(wins);
 		}
 	}

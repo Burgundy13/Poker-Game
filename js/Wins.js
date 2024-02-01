@@ -145,6 +145,23 @@ class Wins {
 		}
 	}
 
+	jacksOrBetter() {
+		let highCards = [
+			this.allJacks,
+			this.allQueens,
+			this.allKings,
+			this.allAces,
+		];
+
+		for (let i = 0; i < highCards.length; i++) {
+			const oneSignArray = highCards[i];
+			if (oneSignArray.length === 2) {
+				this.winCards = oneSignArray;
+				return true;
+			}
+		}
+		return false;
+	}
 	highStraight() {
 		return this.all10.length === 1;
 	}

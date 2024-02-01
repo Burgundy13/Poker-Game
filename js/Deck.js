@@ -8,23 +8,16 @@ class Deck {
 	}
 
 	fiveRandomCards() {
-		// let fiveRandomCards = [];
-		// if (this.cards.length < 6) {
-		// 	this.cards = [].concat(this.cardsCopy);
-		// }
-		// for (let i = 0; i < 5; i++) {
-		// 	let rand = Math.floor(Math.random() * this.cards.length);
-		// 	fiveRandomCards.push(this.cards[rand]);
-		// 	this.cards.splice(rand, 1);
-		// }
-		// return fiveRandomCards;
-		return [
-			this.cards[0],
-			this.cards[14],
-			this.cards[13],
-			this.cards[30],
-			this.cards[27],
-		];
+		let fiveRandomCards = [];
+		if (this.cards.length < 6) {
+			this.cards = [].concat(this.cardsCopy);
+		}
+		for (let i = 0; i < 5; i++) {
+			let rand = Math.floor(Math.random() * this.cards.length);
+			fiveRandomCards.push(this.cards[rand]);
+			this.cards.splice(rand, 1);
+		}
+		return fiveRandomCards;
 	}
 }
 
