@@ -107,6 +107,9 @@ class Game {
 		} else if (wins.fullHouse()) {
 			console.log('Full House');
 			this.selectWinCards(wins);
+		} else if (wins.straight()) {
+			console.log('straight');
+			this.selectWinCards(wins);
 		}
 	}
 

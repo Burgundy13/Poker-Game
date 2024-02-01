@@ -109,6 +109,7 @@ class Wins {
 				sortStraight[4] === sortedFinalCards[4]
 			) {
 				found = true;
+				this.winCards = this.finalCards;
 				return found;
 			}
 		});

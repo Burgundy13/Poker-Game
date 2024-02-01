@@ -20,10 +20,10 @@ class Deck {
 		// return fiveRandomCards;
 		return [
 			this.cards[0],
-			this.cards[13],
-			this.cards[26],
-			this.cards[30],
-			this.cards[43],
+			this.cards[14],
+			this.cards[15],
+			this.cards[16],
+			this.cards[17],
 		];
 	}
 }
