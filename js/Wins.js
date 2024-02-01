@@ -48,6 +48,27 @@ class Wins {
 		}
 	}
 
+	poker() {
+		// for (let i = 0; i < this.all.length; i++) {
+		// 	const arr = this.all[i];
+		// 	if (arr.length === 4) {
+		// 		this.winCards = arr;
+		// 		return true;
+		// 	}
+		// }
+
+		let x = false;
+		this.all.forEach((arr) => {
+			if (arr.length === 4) {
+				this.winCards = arr;
+				x = true;
+			}
+		});
+		return x;
+	}
+
+	fullHouse() {}
+
 	straight() {
 		let found = false;
 		let straights = [

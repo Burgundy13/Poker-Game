@@ -101,6 +101,12 @@ class Game {
 		} else if (wins.straightFlush()) {
 			console.log('Straight Flush');
 			this.selectWinCards(wins);
+		} else if (wins.poker()) {
+			console.log('Poker');
+			this.selectWinCards(wins);
+		} else if (wins.fullHouse()) {
+			console.log('Full House');
+			this.selectWinCards(wins);
 		}
 	}
 
