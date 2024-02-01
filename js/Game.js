@@ -113,6 +113,9 @@ class Game {
 		} else if (wins.threeOfAKind()) {
 			console.log('three of a kind');
 			this.selectWinCards(wins);
+		} else if (wins.twoPairs()) {
+			console.log('two Pairs');
+			this.selectWinCards(wins);
 		}
 	}
 

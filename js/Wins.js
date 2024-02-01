@@ -127,6 +127,24 @@ class Wins {
 		return x;
 	}
 
+	twoPairs() {
+		for (let i = 0; i < this.all.length; i++) {
+			const oneSignArray = this.all[i];
+			if (oneSignArray.length === 2) {
+				for (let j = 0; j < this.all.length; j++) {
+					if (j === i) {
+						continue;
+					}
+					let againOneSignArray = this.all[j];
+					if (againOneSignArray.length === 2) {
+						this.winCards = [oneSignArray, againOneSignArray];
+						return true;
+					}
+				}
+			}
+		}
+	}
+
 	highStraight() {
 		return this.all10.length === 1;
 	}
