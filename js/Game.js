@@ -6,7 +6,9 @@ class Game {
 		this.randomFiveCards = [];
 		this.round = 0;
 		this.finalCards = [];
+		this.win = 0;
 	}
+
 	init() {
 		this.btn.addEventListener('click', () => this.flip());
 	}
@@ -22,10 +24,14 @@ class Game {
 	}
 
 	removeAllSelected() {
+		let body = document.querySelector('body');
+		let winDiv = document.querySelector('.winDiv');
 		document.querySelectorAll('.selected').forEach((div) => {
-			console.log('hello');
 			div.classList.remove('selected', 'cardWin');
 		});
+		if (winDiv) {
+			body.removeChild(winDiv);
+		}
 	}
 
 	turnOnBack() {
@@ -90,6 +96,17 @@ class Game {
 		);
 	}
 
+	displayWin(string) {
+		let body = document.querySelector('body');
+		let div = document.createElement('div');
+		let span = document.querySelector('.scoreNum');
+		body.insertAdjacentElement('afterbegin', div);
+		div.classList.add('winDiv');
+		div.innerHTML = `Congrats you won ${string}`;
+		this.win++;
+		span.innerHTML = this.win;
+	}
+
 	shuffleCards() {
 		this.randomFiveCards = deck.fiveRandomCards();
 	}
@@ -98,28 +115,28 @@ class Game {
 		let wins = new Wins(this.finalCards);
 
 		if (wins.royalFlush()) {
-			console.log('Royal Flush');
 			this.selectWinCards(wins);
+			this.displayWin('Royal Flush');
 		} else if (wins.straightFlush()) {
-			console.log('Straight Flush');
+			this.displayWin('Straight Flush');
 			this.selectWinCards(wins);
 		} else if (wins.poker()) {
-			console.log('Poker');
+			this.displayWin('Poker');
 			this.selectWinCards(wins);
 		} else if (wins.fullHouse()) {
-			console.log('Full House');
+			this.displayWin('Full House');
 			this.selectWinCards(wins);
 		} else if (wins.straight()) {
-			console.log('straight');
+			this.displayWin('Straight');
 			this.selectWinCards(wins);
 		} else if (wins.threeOfAKind()) {
-			console.log('three of a kind');
+			this.displayWin('Three of a Kind');
 			this.selectWinCards(wins);
 		} else if (wins.twoPairs()) {
-			console.log('two Pairs');
+			this.displayWin('Two Pairs');
 			this.selectWinCards(wins);
 		} else if (wins.jacksOrBetter()) {
-			console.log('Jacks or better');
+			this.displayWin('Jacks or Better');
 			this.selectWinCards(wins);
 		}
 	}
