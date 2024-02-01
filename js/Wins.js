@@ -116,6 +116,17 @@ class Wins {
 		return found;
 	}
 
+	threeOfAKind() {
+		let x = false;
+		this.all.forEach((arr) => {
+			if (arr.length === 3) {
+				this.winCards = arr;
+				x = true;
+			}
+		});
+		return x;
+	}
+
 	highStraight() {
 		return this.all10.length === 1;
 	}

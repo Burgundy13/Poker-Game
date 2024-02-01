@@ -21,8 +21,8 @@ class Deck {
 		return [
 			this.cards[0],
 			this.cards[14],
-			this.cards[15],
-			this.cards[16],
+			this.cards[13],
+			this.cards[26],
 			this.cards[17],
 		];
 	}

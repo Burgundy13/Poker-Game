@@ -110,6 +110,9 @@ class Game {
 		} else if (wins.straight()) {
 			console.log('straight');
 			this.selectWinCards(wins);
+		} else if (wins.threeOfAKind()) {
+			console.log('three of a kind');
+			this.selectWinCards(wins);
 		}
 	}
 
