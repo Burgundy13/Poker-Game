@@ -67,7 +67,23 @@ class Wins {
 		return x;
 	}
 
-	fullHouse() {}
+	fullHouse() {
+		for (let i = 0; i < this.all.length; i++) {
+			const oneSignArray = this.all[i];
+			if (oneSignArray.length === 3) {
+				for (let j = 0; j < this.all.length; j++) {
+					if (j === i) {
+						continue;
+					}
+					let againOneSignArray = this.all[j];
+					if (againOneSignArray.length === 2) {
+						this.winCards = [oneSignArray, againOneSignArray];
+						return true;
+					}
+				}
+			}
+		}
+	}
 
 	straight() {
 		let found = false;

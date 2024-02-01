@@ -22,8 +22,8 @@ class Deck {
 			this.cards[0],
 			this.cards[13],
 			this.cards[26],
-			this.cards[39],
-			this.cards[50],
+			this.cards[30],
+			this.cards[43],
 		];
 	}
 }

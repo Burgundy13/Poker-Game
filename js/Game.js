@@ -111,7 +111,7 @@ class Game {
 	}
 
 	selectWinCards(wins) {
-		wins.winCards.forEach((card) => {
+		wins.winCards.flat().forEach((card) => {
 			document
 				.querySelector('[data-id="' + card.getCard() + '"]')
 				.classList.add('cardWin', 'selected');
